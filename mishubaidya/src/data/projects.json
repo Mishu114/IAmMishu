@@ -26,5 +26,19 @@
       },
       "content": "Developed a full-featured e-commerce platform with shopping cart, payment integration, and admin dashboard.\n\nThe platform includes features like product management, order tracking, user authentication, and a comprehensive admin panel for managing the entire store."
     }
+  },
+  {
+    "uid": "task-management-app",
+    "tags": ["React", "TypeScript", "Firebase"],
+    "data": {
+      "title": "Task Management Application",
+      "meta_description": "Collaborative task management tool",
+      "date": "2023-08-20",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d",
+        "alt": "Task management app"
+      },
+      "content": "A collaborative task management application built with React and Firebase. Features real-time updates, team collaboration, and project tracking.\n\nUsers can create projects, assign tasks, set deadlines, and track progress in real-time with a beautiful, intuitive interface."
+    }
   }
 ]

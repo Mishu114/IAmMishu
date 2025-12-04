@@ -1,7 +1,6 @@
 import homepageData from '@/data/homepage.json';
 import settingsData from '@/data/settings.json';
 import pagesData from '@/data/pages.json';
-import blogPostsData from '@/data/blog-posts.json';
 import projectsData from '@/data/projects.json';
 
 // Type definitions
@@ -35,14 +34,6 @@ export function getAllPages() {
 
 export function getPageByUid(uid: string) {
   return pagesData.find((p: any) => p.uid === uid) || null;
-}
-
-export function getAllBlogPosts() {
-  return blogPostsData;
-}
-
-export function getBlogPostByUid(uid: string) {
-  return blogPostsData.find((p: any) => p.uid === uid) || null;
 }
 
 export function getAllProjects() {
