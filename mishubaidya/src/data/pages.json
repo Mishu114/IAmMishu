@@ -1,0 +1,54 @@
+[
+  {
+    "uid": "about",
+    "data": {
+      "meta_title": "About - Mishu Baidya",
+      "meta_description": "Learn more about Mishu Baidya",
+      "slices": [
+        {
+          "slice_type": "biography",
+          "variation": "default",
+          "primary": {
+            "heading": "About Me",
+            "body": [
+              {
+                "type": "paragraph",
+                "text": "I'm a creative developer passionate about building beautiful and functional web experiences."
+              }
+            ],
+            "avatar": {
+              "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
+              "alt": "Profile"
+            },
+            "button_text": "Download Resume",
+            "button_link": "/resume.pdf"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "uid": "contact",
+    "data": {
+      "meta_title": "Contact - Mishu Baidya",
+      "meta_description": "Get in touch with me",
+      "slices": [
+        {
+          "slice_type": "text_block",
+          "primary": {
+            "text": [
+              {
+                "type": "heading1",
+                "text": "Contact Me"
+              },
+              {
+                "type": "paragraph",
+                "text": "Feel free to reach out for collaborations or just a friendly hello!"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

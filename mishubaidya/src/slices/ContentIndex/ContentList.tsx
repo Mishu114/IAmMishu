@@ -1,19 +1,18 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import { asImageSrc, isFilled } from "@prismicio/client";
+import { asImageSrc, isFilled, BlogPost, Project } from "@/lib/data";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MdArrowOutward } from "react-icons/md";
-import { Content } from "@prismicio/client";
 
 gsap.registerPlugin(ScrollTrigger);
 
 type ContentListProps = {
-  items: Content.BlogPostDocument[] | Content.ProjectDocument[];
-  contentType: Content.BlogPostIndexSlice["primary"]["content_type"];
-  fallbackItemImage: Content.BlogPostIndexSlice["primary"]["fallback_item_image"];
-  viewMoreText: Content.BlogPostIndexSlice["primary"]["view_more_text"];
+  items: BlogPost[] | Project[];
+  contentType: string;
+  fallbackItemImage: any;
+  viewMoreText: string;
 };
 
 export default function ContentList({
@@ -33,7 +32,6 @@ export default function ContentList({
   const urlPrefix = contentType === "Blogs" ? "/blog" : "/project";
 
   useEffect(() => {
-    // Animate list-items in with a stagger
     let ctx = gsap.context(() => {
       itemsRef.current.forEach((item, index) => {
         gsap.fromTo(
@@ -58,19 +56,16 @@ export default function ContentList({
         );
       });
 
-      return () => ctx.revert(); // cleanup!
+      return () => ctx.revert();
     }, component);
   }, []);
 
   useEffect(() => {
-    // Mouse move event listener
     const handleMouseMove = (e: MouseEvent) => {
       const mousePos = { x: e.clientX, y: e.clientY + window.scrollY };
-      // Calculate speed and direction
       const speed = Math.sqrt(Math.pow(mousePos.x - lastMousePos.current.x, 2));
 
       let ctx = gsap.context(() => {
-        // Animate the image holder
         if (currentItem !== null) {
           const maxY = window.scrollY + window.innerHeight - 350;
           const maxX = window.innerWidth - 250;
@@ -78,7 +73,7 @@ export default function ContentList({
           gsap.to(revealRef.current, {
             x: gsap.utils.clamp(0, maxX, mousePos.x - 110),
             y: gsap.utils.clamp(0, maxY, mousePos.y - 160),
-            rotation: speed * (mousePos.x > lastMousePos.current.x ? 1 : -1), // Apply rotation based on speed and direction
+            rotation: speed * (mousePos.x > lastMousePos.current.x ? 1 : -1),
             ease: "back.out(2)",
             duration: 1.3,
           });
@@ -90,7 +85,7 @@ export default function ContentList({
           });
         }
         lastMousePos.current = mousePos;
-        return () => ctx.revert(); // cleanup!
+        return () => ctx.revert();
       }, component);
     };
 
@@ -112,18 +107,12 @@ export default function ContentList({
   };
 
   const contentImages = items.map((item) => {
-    const image = isFilled.image(item.data.image)
+    const image = isFilled(item.data.image)
       ? item.data.image
       : fallbackItemImage;
-    return asImageSrc(image, {
-      fit: "crop",
-      w: 220,
-      h: 320,
-      exp: -10,
-    });
+    return asImageSrc(image);
   });
 
-  // Preload images
   useEffect(() => {
     contentImages.forEach((url) => {
       if (!url) return;
@@ -142,7 +131,9 @@ export default function ContentList({
         {items.map((post, index) => (
           <li
             key={index}
-            ref={(el) => (itemsRef.current[index] = el)}
+            ref={(el) => {
+              itemsRef.current[index] = el;
+            }}
             onMouseEnter={() => onMouseEnter(index)}
             className="list-item opacity-0"
           >
@@ -168,7 +159,6 @@ export default function ContentList({
           </li>
         ))}
 
-        {/* Hover element */}
         <div
           className="hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg bg-cover bg-center opacity-0 transition-[background] duration-300"
           style={{

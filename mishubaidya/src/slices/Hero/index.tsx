@@ -1,25 +1,17 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { Content, KeyTextField } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
 import { Shapes } from "@/slices/Hero/Shapes";
 import Bounded from "@/components/Bounded";
 import gsap from "gsap";
 
 /**
- * Props for `Hero`.
- */
-export type HeroProps = SliceComponentProps<Content.HeroSlice>;
-
-/**
  * Component for "Hero" Slices.
  */
-const Hero = ({ slice }: HeroProps): JSX.Element => {
+const Hero = ({ slice }: { slice: any }): JSX.Element => {
   const component = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      // create as many GSAP animations and/or ScrollTriggers here as you want...
       gsap
         .timeline()
         .fromTo(
@@ -29,7 +21,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             x: 0,
             opacity: 1,
             rotate: 0,
-
             ease: "elastic.out(1,0.3)",
             duration: 1,
             transformOrigin: "left top",
@@ -52,10 +43,10 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           },
         );
     }, component);
-    return () => ctx.revert(); // cleanup!
+    return () => ctx.revert();
   }, []);
 
-  const renderLetters = (name: KeyTextField, key: string) => {
+  const renderLetters = (name: string | null | undefined, key: string) => {
     if (!name) return;
     return name.split("").map((letter, index) => (
       <span

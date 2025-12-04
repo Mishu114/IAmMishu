@@ -1,7 +1,5 @@
 "use client";
 
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
 import React, { useLayoutEffect, useRef } from "react";
 import { MdCircle } from "react-icons/md";
 import { gsap } from "gsap";
@@ -13,22 +11,16 @@ import Heading from "@/components/Heading";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * Props for `TechList`.
- */
-export type TechListProps = SliceComponentProps<Content.TechListSlice>;
-
-/**
  * Component for "TechList" Slices.
  */
-const TechList = ({ slice }: TechListProps): JSX.Element => {
+const TechList = ({ slice }: { slice: any }): JSX.Element => {
   const component = useRef(null);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      // create as many GSAP animations and/or ScrollTriggers here as you want...
       const tl = gsap.timeline({
         scrollTrigger: {
-          pin: true, // pin the trigger element while active
+          pin: true,
           start: "top bottom",
           end: "bottom top",
           scrub: 4,
@@ -54,7 +46,7 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
         },
       );
     }, component);
-    return () => ctx.revert(); // cleanup!
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -70,7 +62,7 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
         </Heading>
       </Bounded>
 
-      {slice.items.map(({ tech_color, tech_name }, index) => (
+      {slice.items.map(({ tech_color, tech_name }: any, index: number) => (
         <div
           key={index}
           className="tech-row mb-8 flex items-center justify-center gap-4 text-slate-700"

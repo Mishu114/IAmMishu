@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ImageField } from "@prismicio/client";
-import { PrismicNextImage } from "@prismicio/next";
+import { ImageField } from "@/lib/data";
+import Image from "next/image";
 import clsx from "clsx";
 import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
 
@@ -34,7 +34,7 @@ export default function Avatar({
       );
 
       window.onmousemove = (e) => {
-        if (!component.current) return; // no component, no animation!
+        if (!component.current) return;
         const componentRect = (
           component.current as HTMLElement
         ).getBoundingClientRect();
@@ -69,8 +69,10 @@ export default function Avatar({
           );
       };
     }, component);
-    return () => ctx.revert(); // cleanup!
+    return () => ctx.revert();
   }, [prefersReducedMotion]);
+
+  if (!image || !image.url) return null;
 
   return (
     <div ref={component} className={clsx("relative h-full w-full", className)}>
@@ -78,10 +80,12 @@ export default function Avatar({
         className="avatar aspect-square overflow-hidden rounded-3xl border-2 border-slate-700 opacity-0"
         style={{ perspective: "500px", perspectiveOrigin: "150% 150%" }}
       >
-        <PrismicNextImage
-          field={image}
+        <Image
+          src={image.url}
+          alt={image.alt || "Avatar"}
+          width={image.width || 500}
+          height={image.height || 500}
           className="avatar-image h-full w-full object-fill"
-          imgixParams={{ q: 90 }}
         />
         <div className="highlight absolute inset-0 hidden w-full scale-110 bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 md:block"></div>
       </div>

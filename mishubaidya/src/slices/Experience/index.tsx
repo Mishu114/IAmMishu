@@ -1,17 +1,11 @@
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
-import { Content } from "@prismicio/client";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-
-/**
- * Props for `Experience`.
- */
-export type ExperienceProps = SliceComponentProps<Content.ExperienceSlice>;
+import { RichText } from "@/components/RichText";
 
 /**
  * Component for "Experience" Slices.
  */
-const Experience = ({ slice }: ExperienceProps): JSX.Element => {
+const Experience = ({ slice }: { slice: any }): JSX.Element => {
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -20,7 +14,7 @@ const Experience = ({ slice }: ExperienceProps): JSX.Element => {
       <Heading as="h2" size="lg">
         {slice.primary.heading}
       </Heading>
-      {slice.items.map((item, index) => (
+      {slice.items.map((item: any, index: number) => (
         <div key={index} className="ml-6 mt-8 max-w-prose md:ml-12 md:mt-16">
           <Heading as="h3" size="sm">
             {item.title}
@@ -32,7 +26,7 @@ const Experience = ({ slice }: ExperienceProps): JSX.Element => {
             <span>{item.institution}</span>
           </div>
           <div className="prose prose-lg prose-invert mt-4">
-            <PrismicRichText field={item.description} />
+            <RichText field={item.description} />
           </div>
         </div>
       ))}

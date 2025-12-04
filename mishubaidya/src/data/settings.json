@@ -1,0 +1,24 @@
+{
+  "name": "Mishu Baidya",
+  "meta_title": "Mishu Baidya - Creative Developer Portfolio",
+  "meta_description": "Portfolio website showcasing creative development projects and blog posts",
+  "nav_item": [
+    {
+      "label": "About",
+      "link": "/about"
+    },
+    {
+      "label": "Projects",
+      "link": "/projects"
+    },
+    {
+      "label": "Blog",
+      "link": "/blog"
+    }
+  ],
+  "cta_label": "Contact",
+  "cta_link": "/contact",
+  "github_link": "https://github.com/mishubaidya",
+  "twitter_link": "https://twitter.com/mishubaidya",
+  "linkedin_link": "https://linkedin.com/in/mishubaidya"
+}

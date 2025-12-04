@@ -1,0 +1,119 @@
+{
+  "meta_title": "Mishu Baidya - Creative Developer",
+  "meta_description": "Welcome to my creative portfolio showcasing innovative web development projects",
+  "slices": [
+    {
+      "slice_type": "hero",
+      "variation": "default",
+      "primary": {
+        "first_name": "Mishu",
+        "last_name": "Baidya",
+        "tag_line": "Creative Developer"
+      }
+    },
+    {
+      "slice_type": "biography",
+      "variation": "default",
+      "primary": {
+        "heading": "About Me",
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "I'm a passionate creative developer with expertise in building modern web applications. I love crafting beautiful user interfaces and bringing ideas to life through code."
+          },
+          {
+            "type": "paragraph",
+            "text": "With years of experience in full-stack development, I specialize in React, Next.js, and modern web technologies."
+          }
+        ],
+        "avatar": {
+          "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
+          "alt": "Profile avatar",
+          "width": 3500,
+          "height": 2338
+        },
+        "button_text": "View Resume",
+        "button_link": "/resume"
+      }
+    },
+    {
+      "slice_type": "tech_list",
+      "variation": "default",
+      "primary": {
+        "title": "Technologies I Use"
+      },
+      "items": [
+        {
+          "tech_name": "React",
+          "tech_color": "#61DAFB"
+        },
+        {
+          "tech_name": "Next.js",
+          "tech_color": "#000000"
+        },
+        {
+          "tech_name": "TypeScript",
+          "tech_color": "#3178C6"
+        },
+        {
+          "tech_name": "Node.js",
+          "tech_color": "#339933"
+        },
+        {
+          "tech_name": "Three.js",
+          "tech_color": "#049EF4"
+        }
+      ]
+    },
+    {
+      "slice_type": "experience",
+      "variation": "default",
+      "primary": {
+        "heading": "Experience"
+      },
+      "items": [
+        {
+          "title": "Senior Frontend Developer",
+          "time_period": "2022 - Present",
+          "institution": "Tech Company",
+          "description": [
+            {
+              "type": "paragraph",
+              "text": "Leading the development of modern web applications using React and Next.js. Architecting scalable frontend solutions and mentoring junior developers."
+            }
+          ]
+        },
+        {
+          "title": "Full Stack Developer",
+          "time_period": "2020 - 2022",
+          "institution": "Startup Inc",
+          "description": [
+            {
+              "type": "paragraph",
+              "text": "Built and maintained multiple web applications from scratch. Worked with modern tech stack including React, Node.js, and MongoDB."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slice_type": "blog_post_index",
+      "variation": "default",
+      "primary": {
+        "heading": "Latest Projects",
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "Check out my recent work and side projects."
+          }
+        ],
+        "content_type": "Projects",
+        "view_more_text": "View Project",
+        "fallback_item_image": {
+          "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+          "alt": "Project placeholder"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "uid": "portfolio-website",
+    "tags": ["Next.js", "Three.js", "TypeScript"],
+    "data": {
+      "title": "Creative Portfolio Website",
+      "meta_description": "A modern portfolio website with 3D animations",
+      "date": "2023-12-01",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+        "alt": "Portfolio website screenshot"
+      },
+      "slices": [
+        {
+          "slice_type": "text_block",
+          "primary": {
+            "text": [
+              {
+                "type": "heading2",
+                "text": "Project Overview"
+              },
+              {
+                "type": "paragraph",
+                "text": "This portfolio website showcases modern web development techniques including 3D animations with Three.js, smooth animations with GSAP, and server-side rendering with Next.js."
+              },
+              {
+                "type": "paragraph",
+                "text": "The site features an interactive 3D hero section, smooth scrolling animations, and a fully responsive design."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "uid": "ecommerce-platform",
+    "tags": ["React", "Node.js", "MongoDB"],
+    "data": {
+      "title": "E-Commerce Platform",
+      "meta_description": "Full-stack e-commerce solution",
+      "date": "2023-10-15",
+      "image": {
+        "url": "https://images.unsplash.com/photo-1557821552-17105176677c",
+        "alt": "E-commerce platform"
+      },
+      "slices": [
+        {
+          "slice_type": "text_block",
+          "primary": {
+            "text": [
+              {
+                "type": "heading2",
+                "text": "Building a Modern E-Commerce Platform"
+              },
+              {
+                "type": "paragraph",
+                "text": "Developed a full-featured e-commerce platform with shopping cart, payment integration, and admin dashboard."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

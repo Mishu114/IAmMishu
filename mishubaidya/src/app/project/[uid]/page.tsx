@@ -1,18 +1,16 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-
-import { createClient } from "@/prismicio";
-
+import { getProjectByUid, getAllProjects } from "@/lib/data";
 import ContentBody from "@/components/ContentBody";
-import { formatDate } from "@/utils/formatDate";
 
 type Params = { uid: string };
 
 export default async function Page({ params }: { params: Params }) {
-  const client = createClient();
-  const page = await client
-    .getByUID("project", params.uid)
-    .catch(() => notFound());
+  const page = getProjectByUid(params.uid);
+  
+  if (!page) {
+    notFound();
+  }
 
   return <ContentBody page={page} />;
 }
@@ -22,10 +20,13 @@ export async function generateMetadata({
 }: {
   params: Params;
 }): Promise<Metadata> {
-  const client = createClient();
-  const page = await client
-    .getByUID("project", params.uid)
-    .catch(() => notFound());
+  const page = getProjectByUid(params.uid);
+  
+  if (!page) {
+    return {
+      title: "Project Not Found",
+    };
+  }
 
   return {
     title: page.data.title,
@@ -34,8 +35,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const client = createClient();
-  const pages = await client.getAllByType("project");
+  const pages = getAllProjects();
 
   return pages.map((page) => {
     return { uid: page.uid };

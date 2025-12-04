@@ -1,24 +1,19 @@
-import { Content, isFilled } from "@prismicio/client";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import { createClient } from "@/prismicio";
+import { getAllBlogPosts, getAllProjects, isFilled } from "@/lib/data";
 import ContentList from "./ContentList";
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
-/**
- * Props for `BlogPostIndex`.
- */
-export type BlogPostIndexProps =
-  SliceComponentProps<Content.BlogPostIndexSlice>;
+import { RichText } from "@/components/RichText";
 
 /**
  * Component for "BlogPostIndex" Slices.
  */
 const BlogPostIndex = async ({
   slice,
-}: BlogPostIndexProps): Promise<JSX.Element> => {
-  const client = createClient();
-  const blogPosts = await client.getAllByType("blog_post");
-  const projects = await client.getAllByType("project");
+}: {
+  slice: any;
+}): Promise<JSX.Element> => {
+  const blogPosts = getAllBlogPosts();
+  const projects = getAllProjects();
 
   const items = slice.primary.content_type === "Blogs" ? blogPosts : projects;
 
@@ -30,9 +25,9 @@ const BlogPostIndex = async ({
       <Heading size="xl" className="mb-8">
         {slice.primary.heading}
       </Heading>
-      {isFilled.richText(slice.primary.description) && (
+      {isFilled(slice.primary.description) && (
         <div className="prose prose-xl prose-invert mb-10">
-          <PrismicRichText field={slice.primary.description} />
+          <RichText field={slice.primary.description} />
         </div>
       )}
       <ContentList

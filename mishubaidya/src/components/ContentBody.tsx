@@ -1,5 +1,5 @@
-import { SliceZone } from "@prismicio/react";
-import { Content } from "@prismicio/client";
+import { SliceZone } from "@/components/SliceZone";
+import { BlogPost, Project } from "@/lib/data";
 
 import { components } from "@/slices";
 import Heading from "@/components/Heading";
@@ -9,7 +9,7 @@ import { formatDate } from "@/utils/formatDate";
 export default function ContentBody({
   page,
 }: {
-  page: Content.BlogPostDocument | Content.ProjectDocument;
+  page: BlogPost | Project;
 }) {
   const formattedDate = formatDate(page.data.date);
   return (
