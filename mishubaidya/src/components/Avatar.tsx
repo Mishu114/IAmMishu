@@ -2,16 +2,22 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ImageField } from "@/lib/data";
 import Image from "next/image";
 import clsx from "clsx";
 import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
+
+interface AvatarImage {
+  url: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
 
 export default function Avatar({
   image,
   className,
 }: {
-  image: ImageField;
+  image: AvatarImage | null;
   className?: string;
 }) {
   const component = useRef(null);

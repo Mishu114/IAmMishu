@@ -10,27 +10,7 @@
         "url": "https://images.unsplash.com/photo-1633356122544-f134324a6cee",
         "alt": "Next.js tutorial"
       },
-      "slices": [
-        {
-          "slice_type": "text_block",
-          "primary": {
-            "text": [
-              {
-                "type": "heading2",
-                "text": "Introduction"
-              },
-              {
-                "type": "paragraph",
-                "text": "Next.js is a powerful React framework that enables you to build fast, SEO-friendly web applications with ease."
-              },
-              {
-                "type": "paragraph",
-                "text": "In this tutorial, we'll explore the basics of Next.js and learn how to create your first application."
-              }
-            ]
-          }
-        }
-      ]
+      "content": "Next.js is a powerful React framework that enables you to build fast, SEO-friendly web applications with ease.\n\nIn this tutorial, we'll explore the basics of Next.js and learn how to create your first application. Next.js provides features like server-side rendering, static site generation, and API routes out of the box."
     }
   },
   {
@@ -44,23 +24,7 @@
         "url": "https://images.unsplash.com/photo-1618609378039-b572f64c5b42",
         "alt": "3D graphics"
       },
-      "slices": [
-        {
-          "slice_type": "text_block",
-          "primary": {
-            "text": [
-              {
-                "type": "heading2",
-                "text": "Creating 3D Graphics on the Web"
-              },
-              {
-                "type": "paragraph",
-                "text": "Three.js makes it easy to create and display animated 3D computer graphics in a web browser using WebGL."
-              }
-            ]
-          }
-        }
-      ]
+      "content": "Three.js makes it easy to create and display animated 3D computer graphics in a web browser using WebGL.\n\nThis powerful library abstracts away the complexity of WebGL and provides an intuitive API for creating 3D scenes, lights, cameras, and animations."
     }
   }
 ]

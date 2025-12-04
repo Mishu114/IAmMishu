@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SliceZone } from "@/components/SliceZone";
 import { getPageByUid, getAllPages } from "@/lib/data";
-import { components } from "@/slices";
+import Bounded from "@/components/Bounded";
+import Heading from "@/components/Heading";
 
 type Params = { uid: string };
 
@@ -13,7 +13,20 @@ export default async function Page({ params }: { params: Params }) {
     notFound();
   }
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <Bounded>
+      <div className="max-w-4xl">
+        <Heading as="h1" size="xl" className="mb-8">
+          {page.data.title}
+        </Heading>
+        <div className="prose prose-lg prose-invert">
+          {page.data.content.split('\n\n').map((paragraph: string, index: number) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
+      </div>
+    </Bounded>
+  );
 }
 
 export async function generateMetadata({

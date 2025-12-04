@@ -2,10 +2,9 @@ import Link from "next/link";
 import React from "react";
 import { MdArrowOutward } from "react-icons/md";
 import clsx from "clsx";
-import { LinkField } from "@/lib/data";
 
 type ButtonProps = {
-  linkField: LinkField;
+  linkField: string;
   label: string;
   showIcon?: boolean;
   className?: string;
